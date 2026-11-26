@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#FF7597">
+  <title>선물 뭐하지? — 소중한 사람에게 센스있는 선물하세요 🎁</title>
+
+  <!-- 웹폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff" />
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 메인 모바일 뷰포트 (스마트폰 프레임 제거 및 원래의 깔끔한 중앙 컨테이너로 복원) -->
+  <main class="app-viewport">
+    
+    <!-- 상단 탑바 -->
+    <header class="app-topbar">
+      <a href="#" class="topbar-logo" id="logoBtn" aria-label="선물 뭐하지 홈으로">
+        <span class="gift-icon">🎁</span>
+        <span>선물 뭐하지?</span>
+      </a>
+      <div class="topbar-actions">
+        <button class="sound-toggle-btn" id="soundToggleBtn" aria-label="효과음 켜기/끄기" title="효과음 설정">
+          <span id="soundIcon">🔔</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         [SCREEN 1: 시작 화면 (VIEW-INTRO)]
+         ============================================================ -->
+    <section class="screen-view active" id="view-intro">
+      <div class="hero-container">
+        
+        <div class="hero-badge">
+          <span class="hero-badge-icon">🎀</span>
+          <span>소중한 사람에게 센스있는 선물하기</span>
+        </div>
+
+        <h1 class="hero-title">
+          선물 뭐하지?
+          <span class="highlight">고민되는 선물, 같이 골라줄게요!</span>
+        </h1>
+
+        <p class="hero-slogan">
+          받는사람과 예산을 알려주면<br>
+          선물 3가지를 추천해 드려요 💗
+        </p>
+
+        <!-- 귀여운 3D 일러스트 선물상자 -->
+        <div class="hero-visual" id="heroVisualBox" onclick="showView('input')" style="cursor: pointer;">
+          <div class="hero-glow-bg"></div>
+
+          <span class="sparkle-item sparkle-1">✨</span>
+          <span class="sparkle-item sparkle-2">💖</span>
+          <span class="sparkle-item sparkle-3">⭐</span>
+          <span class="sparkle-item sparkle-4">🌿</span>
+
+          <!-- 인라인 SVG 선물상자 -->
+          <svg class="hero-gift-box" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="80" cy="142" rx="55" ry="12" fill="#FFD1DC" opacity="0.6"/>
+            <rect x="25" y="55" width="110" height="85" rx="14" fill="#FF8DA1"/>
+            <rect x="25" y="55" width="110" height="85" rx="14" fill="url(#hero-box-grad)"/>
+            <rect x="70" y="55" width="20" height="85" fill="#FFE5EC"/>
+            <rect x="18" y="38" width="124" height="24" rx="8" fill="#FF7597"/>
+            <rect x="70" y="38" width="20" height="24" fill="#FFE5EC"/>
+            <path d="M52 26C45 10 70 12 78 34C76 12 101 10 94 26C88 38 72 38 52 26Z" fill="#FFF0F3"/>
+            <circle cx="80" cy="34" r="8" fill="#FFD1DC"/>
+            <circle cx="45" cy="75" r="4" fill="#FFFFFF" opacity="0.6"/>
+            <circle cx="53" cy="83" r="2.5" fill="#FFFFFF" opacity="0.6"/>
+            
+            <defs>
+              <linearGradient id="hero-box-grad" x1="25" y1="55" x2="135" y2="140" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FFA4B6" stop-opacity="0.3"/>
+                <stop offset="1" stop-color="#FF7597" stop-opacity="0.25"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <!-- 3개 선물 구성 안내 카드 -->
+        <div class="value-info-card">
+          <div class="value-info-title">
+            <span>💡</span>
+            <span>선물 뭐하지의 특별한 3가지 추천 공식</span>
+          </div>
+          <ul class="value-info-list">
+            <li>
+              <span class="badge-normal badge-slot-1">선물 1</span>
+              <span class="badge-desc"><strong>요즘 인기있는 선물</strong> — 호불호 없는 인기템</span>
+            </li>
+            <li>
+              <span class="badge-normal badge-slot-2">선물 2</span>
+              <span class="badge-desc"><strong>센스 넘치는 선물</strong> — 받으면 기분 좋은 선물</span>
+            </li>
+            <li>
+              <span class="badge-social badge-slot-3">선물 3</span>
+              <span class="badge-desc"><strong>마음 따뜻한 선물</strong> — 가치를 담은 착한 소비</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 시작 버튼 -->
+        <button class="btn-main-cta" id="startBtn" onclick="showView('input')">
+          <span>🎁 선물 골라줘</span>
+          <span class="cta-arrow">➔</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         [SCREEN 2: 선물 정보 입력 화면 (VIEW-INPUT)]
+         ============================================================ -->
+    <section class="screen-view" id="view-input">
+      <div class="form-header">
+        <span class="form-step-badge">📝 맞춤 선물 찾기</span>
+        <h2 class="form-title">
+          <span>누구에게 선물할까요? 💝</span>
+        </h2>
+        <p class="form-subtitle">성별, 연령대, 예산을 알려주시면 딱 맞는 선물을 골라드려요!</p>
+      </div>
+
+      <!-- 진행률 트래커 바 -->
+      <div class="progress-track-wrapper" aria-label="입력 진행도">
+        <div class="progress-track-fill" id="formProgressFill"></div>
+      </div>
+
+      <form id="giftForm" onsubmit="return false;">
+
+        <!-- ① 선물받을 사람 (표시용) -->
+        <div class="question-block" id="block-recipient">
+          <div class="question-label">
+            <div class="q-title-wrap">
+              <span class="question-num">1</span>
+              <span class="q-title">선물받을 사람</span>
+            </div>
+            <span class="badge-check">선택완료 ✓</span>
+          </div>
+          <div class="button-group-grid" data-group="recipient">
+            <button type="button" class="select-chip-btn" data-value="친구">👭 친구</button>
+            <button type="button" class="select-chip-btn" data-value="직장동료">💼 직장동료</button>
+            <button type="button" class="select-chip-btn" data-value="연인">👩‍❤️‍👨 연인</button>
+            <button type="button" class="select-chip-btn" data-value="부모님">👨‍👩‍👧 부모님</button>
+            <button type="button" class="select-chip-btn" data-value="선생님">🎓 선생님</button>
+            <button type="button" class="select-chip-btn" data-value="custom">✍️ 직접입력</button>
+          </div>
+          <div class="custom-input-box" id="recipient-custom-box">
+            <input type="text" class="custom-input-field" id="recipient-custom-input" placeholder="관계를 입력해줘 (예: 조카, 상사, 거래처 담당자 등)" maxlength="20">
+          </div>
+        </div>
+
+        <!-- ② 성별 (추천 핵심 기준) -->
+        <div class="question-block" id="block-gender">
+          <div class="question-label">
+            <div class="q-title-wrap">
+              <span class="question-num">2</span>
+              <span class="q-title">성별</span>
+            </div>
+            <span class="badge-check">선택완료 ✓</span>
+          </div>
+          <div class="button-group-grid cols-2" data-group="gender">
+            <button type="button" class="select-chip-btn" data-value="여성">🙋‍♀️ 여성</button>
+            <button type="button" class="select-chip-btn" data-value="남성">🙋‍♂️ 남성</button>
+          </div>
+        </div>
+
+        <!-- ③ 연령대 (추천 핵심 기준) -->
+        <div class="question-block" id="block-age">
+          <div class="question-label">
+            <div class="q-title-wrap">
+              <span class="question-num">3</span>
+              <span class="q-title">연령대</span>
+            </div>
+            <span class="badge-check">선택완료 ✓</span>
+          </div>
+          <div class="button-group-grid cols-3" data-group="age">
+            <button type="button" class="select-chip-btn" data-value="10대">10대</button>
+            <button type="button" class="select-chip-btn" data-value="20대">20대</button>
+            <button type="button" class="select-chip-btn" data-value="30대">30대</button>
+            <button type="button" class="select-chip-btn" data-value="40대">40대</button>
+            <button type="button" class="select-chip-btn" data-value="50대">50대</button>
+            <button type="button" class="select-chip-btn" data-value="60대 이상">60대 이상</button>
+          </div>
+        </div>
+
+        <!-- ④ 예산 (추천 핵심 기준) -->
+        <div class="question-block" id="block-budget">
+          <div class="question-label">
+            <div class="q-title-wrap">
+              <span class="question-num">4</span>
+              <span class="q-title">예산</span>
+            </div>
+            <span class="badge-check">선택완료 ✓</span>
+          </div>
+          <div class="button-group-grid cols-3" data-group="budget">
+            <button type="button" class="select-chip-btn" data-value="1만원 미만">1만원 미만</button>
+            <button type="button" class="select-chip-btn" data-value="1~3만원">1~3만원</button>
+            <button type="button" class="select-chip-btn" data-value="3~5만원">3~5만원</button>
+            <button type="button" class="select-chip-btn" data-value="5~10만원">5~10만원</button>
+            <button type="button" class="select-chip-btn" data-value="10만원 이상">10만원 이상</button>
+            <button type="button" class="select-chip-btn" data-value="custom">직접입력</button>
+          </div>
+
+          <!-- 인터랙티브 예산 슬라이더 -->
+          <div class="budget-slider-card">
+            <div class="slider-header-row">
+              <span class="slider-label">🎚️ 슬라이더로 쏙 조절하기</span>
+            </div>
+            <input type="range" class="budget-range-input" id="budgetRangeSlider" min="0" max="4" step="1" value="1" aria-label="예산 슬라이더">
+            <div class="slider-ticks-row">
+              <span>1만원 미만</span>
+              <span>1~3만원</span>
+              <span>3~5만원</span>
+              <span>5~10만원</span>
+              <span>10만원 이상</span>
+            </div>
+          </div>
+
+          <div class="custom-input-box" id="budget-custom-box">
+            <div class="budget-input-unit-wrap">
+              <input type="number" class="custom-input-field" id="budget-custom-input" placeholder="원하는 예산을 숫자로 입력해줘" min="1000" max="1000000" step="1000">
+              <span class="input-won-unit">원</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ⑤ 상황 (표시용) -->
+        <div class="question-block" id="block-situation">
+          <div class="question-label">
+            <div class="q-title-wrap">
+              <span class="question-num">5</span>
+              <span class="q-title">상황</span>
+            </div>
+            <span class="badge-check">선택완료 ✓</span>
+          </div>
+          <div class="button-group-grid cols-3" data-group="situation">
+            <button type="button" class="select-chip-btn" data-value="생일">🎂 생일</button>
+            <button type="button" class="select-chip-btn" data-value="감사">💌 감사</button>
+            <button type="button" class="select-chip-btn" data-value="응원">💪 응원</button>
+            <button type="button" class="select-chip-btn" data-value="위로">🍀 위로</button>
+            <button type="button" class="select-chip-btn" data-value="사과">🍎 사과</button>
+            <button type="button" class="select-chip-btn" data-value="custom">✍️ 직접입력</button>
+          </div>
+          <div class="custom-input-box" id="situation-custom-box">
+            <input type="text" class="custom-input-field" id="situation-custom-input" placeholder="상황을 입력해줘 (예: 집들이, 합격, 승진, 결혼 등)" maxlength="20">
+          </div>
+        </div>
+
+        <!-- 질문 화면 하단 버튼 그룹 -->
+        <div class="form-action-group">
+          <button type="button" class="btn-primary-submit" id="submitFormBtn" disabled>
+            <span>🎁 선물 골라줘</span>
+            <span class="submit-arrow">➔</span>
+          </button>
+          <button type="button" class="btn-ghost-back" onclick="showView('intro')">
+            <span>이전 화면으로 돌아가기</span>
+          </button>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- ============================================================
+         [SCREEN 3: 선물 추천 결과 화면 (VIEW-RESULT)]
+         ============================================================ -->
+    <section class="screen-view" id="view-result">
+      
+      <!-- 상단 추천 영역 -->
+      <div class="result-header-minimal">
+        <div class="result-badge-pill">
+          <span class="badge-dot"></span>
+          <span>맞춤 선물 추천</span>
+        </div>
+        <h2 class="result-main-title" id="resultHeadline">
+          마음에 쏙 들 선물 3가지를 찾았어요! 🎁
+        </h2>
+        <p class="result-short-desc" id="resultShortDesc">
+          선택하신 조건에 딱 맞춘 추천 선물이에요 💕
+        </p>
+
+        <!-- 사용자 조건 미니 태그 -->
+        <div class="user-selection-tags" id="userSelectionTags"></div>
+      </div>
+
+      <!-- 선물 상자 3개 카드 컨테이너 -->
+      <div class="gift-slots-container" id="giftSlotsContainer">
+        
+        <!-- 슬롯 0: 선물 1 (인기 선물 - 핑크) -->
+        <div class="gift-slot-card" id="slot-0">
+          <div class="box-opened-content" id="product-panel-0"></div>
+        </div>
+
+        <!-- 슬롯 1: 선물 2 (센스 선물 - 핑크) -->
+        <div class="gift-slot-card" id="slot-1">
+          <div class="box-opened-content" id="product-panel-1"></div>
+        </div>
+
+        <!-- 슬롯 2: 선물 3 (마음 따뜻한 선물 - 민트) -->
+        <div class="gift-slot-card is-mint-slot" id="slot-2">
+          <div class="box-opened-content" id="product-panel-2"></div>
+        </div>
+
+      </div>
+
+      <!-- [세 번째 선물 밑 SDGs 연계 가치 섹션] -->
+      <div class="sdgs-value-section" id="sdgsValueSection"></div>
+
+      <!-- 결과 화면 하단 액션 버튼 그룹 (요청사항: 다른 선물 추천받기 / 조건 다시 수정하기) -->
+      <div class="result-bottom-actions">
+        <button type="button" class="btn-action-primary" id="retryButton" onclick="refreshRecommendations()">
+          <span>🔄 다른 선물 추천받기</span>
+        </button>
+        <button type="button" class="btn-action-share" id="editConditionsBtn" onclick="showView('input')">
+          <span>✏️ 조건 다시 수정하기</span>
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- 선물 상자 오픈 전환 애니메이션 오버레이 -->
+  <div id="giftOpeningOverlay" class="gift-opening-overlay">
+    <div class="opening-modal-card">
+      <div class="opening-box-anim">
+        <svg class="svg-opening-box" viewBox="0 0 120 120" fill="none">
+          <ellipse cx="60" cy="106" rx="44" ry="10" fill="rgba(0,0,0,0.15)"/>
+          <rect x="20" y="48" width="80" height="58" rx="10" fill="#FF7597"/>
+          <rect x="52" y="48" width="16" height="58" fill="#FFF0F3"/>
+          <g class="opening-box-lid">
+            <rect x="14" y="34" width="92" height="18" rx="6" fill="#FF8DA1"/>
+            <rect x="52" y="34" width="16" height="18" fill="#FFF0F3"/>
+            <path d="M40 20C32 8 52 10 60 28C68 10 88 8 80 20C75 28 64 29 40 20Z" fill="#FFF0F3"/>
+            <circle cx="60" cy="26" r="6" fill="#FFD1DC"/>
+          </g>
+          <g class="box-inner-glow">
+            <circle cx="60" cy="50" r="32" fill="url(#openingGlowGrad)"/>
+          </g>
+          <defs>
+            <radialGradient id="openingGlowGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FEF08A"/>
+              <stop offset="60%" stop-color="#F59E0B" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#F59E0B" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+        </svg>
+        <div class="sparkle-particle sp-1">✨</div>
+        <div class="sparkle-particle sp-2">💖</div>
+        <div class="sparkle-particle sp-3">⭐</div>
+        <div class="sparkle-particle sp-4">🎉</div>
+        <div class="sparkle-particle sp-5">✨</div>
+      </div>
+      <h3 class="opening-title">선물 고르는 중... 🎁</h3>
+      <p class="opening-subtitle">딱 맞는 3가지 선물을 골라왔어요! ✨</p>
+    </div>
+  </div>
+
+  <script src="products_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
